@@ -1,0 +1,6 @@
+build/
+benchmarks/results_gui/
+*.nsys-rep
+*.ncu-rep
+*.sqlite
+imgui.ini

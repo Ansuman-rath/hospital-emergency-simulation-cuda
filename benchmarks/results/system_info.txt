@@ -1,0 +1,9 @@
+CPU hardware threads: 20
+OpenMP: enabled (200203)
+CUDA build: yes
+GPU: NVIDIA GeForce RTX 5060 Laptop GPU (sm_120, 26 SMs, 8123 MiB, bus 128-bit, L2 32768 KiB)
+CUDA driver 13.5, runtime 13.5
+steps per run: 200
+repeats (median): 3
+bench dt: 0.02
+seed: 42

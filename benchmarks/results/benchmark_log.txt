@@ -1,0 +1,137 @@
+﻿CPU hardware threads: 20
+OpenMP: enabled (200203)
+CUDA build: yes
+GPU: NVIDIA GeForce RTX 5060 Laptop GPU (sm_120, 26 SMs, 8123 MiB, bus 128-bit, L2 32768 KiB)
+CUDA driver 13.5, runtime 13.5
+
+Kernel suite (200 steps, median of 3)
+  [  7%] size sweep N=100
+  [ 14%] size sweep N=1000
+  [ 21%] size sweep N=5000
+  [ 29%] size sweep N=10000
+  [ 36%] size sweep N=50000
+  [ 43%] size sweep N=100000
+  [ 50%] size sweep N=500000
+  [ 57%] size sweep N=1000000
+  [ 64%] block-size sweep
+  [ 71%] ordering experiment
+  [ 79%] active-list f=0.200000
+  [ 86%] active-list f=0.500000
+  [ 93%] active-list f=0.800000
+  [100%] active-list f=0.950000
+variant                                N  block   kernel ms      e2e ms  h2d+d2h ms  xKernel     xE2E    ok
+CPU single-thread                    100      0       0.253       0.253       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)            100      0       1.444       1.444       0.000     0.18     0.18   yes
+CUDA naive (AoS split)               100    256      12.340      25.300      11.288     0.02     0.01   yes
+CUDA AoS fused                       100    256       4.691      14.472       5.635     0.05     0.02   yes
+CUDA SoA split                       100    256      13.069      23.055       6.310     0.02     0.01   yes
+CUDA optimized (SoA fused)           100    256       3.159      12.756       4.972     0.08     0.02   yes
+CPU single-thread                   1000      0       1.226       1.226       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)           1000      0       1.737       1.737       0.000     0.71     0.71   yes
+CUDA naive (AoS split)              1000    256       9.480      24.159       9.924     0.13     0.05   yes
+CUDA AoS fused                      1000    256       2.980      11.441       3.985     0.41     0.11   yes
+CUDA SoA split                      1000    256      13.390      17.578       4.787     0.09     0.07   yes
+CUDA optimized (SoA fused)          1000    256       3.277      12.493       5.418     0.37     0.10   yes
+CPU single-thread                   5000      0      14.477      14.477       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)           5000      0       2.879       2.879       0.000     5.03     5.03   yes
+CUDA naive (AoS split)              5000    256       8.905      33.784      14.932     1.63     0.43   yes
+CUDA AoS fused                      5000    256       3.410      11.444       4.376     4.25     1.27   yes
+CUDA SoA split                      5000    256      13.207      18.242       5.024     1.10     0.79   yes
+CUDA optimized (SoA fused)          5000    256       4.308      19.890      10.063     3.36     0.73   yes
+CPU single-thread                  10000      0      29.059      29.059       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)          10000      0       5.786       5.786       0.000     5.02     5.02   yes
+CUDA naive (AoS split)             10000    256       9.171      36.954      16.990     3.17     0.79   yes
+CUDA AoS fused                     10000    256       3.578      13.871       6.836     8.12     2.09   yes
+CUDA SoA split                     10000    256       8.565      17.201       4.501     3.39     1.69   yes
+CUDA optimized (SoA fused)         10000    256       2.738      12.200       5.350    10.61     2.38   yes
+CPU single-thread                  50000      0     163.918     163.918       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)          50000      0      26.424      26.424       0.000     6.20     6.20   yes
+CUDA naive (AoS split)             50000    256      16.466     103.254      66.923     9.95     1.59   yes
+CUDA AoS fused                     50000    256       4.083      17.151       6.047    40.15     9.56   yes
+CUDA SoA split                     50000    256      11.753      23.751       7.177    13.95     6.90   yes
+CUDA optimized (SoA fused)         50000    256       4.112      16.099       6.844    39.86    10.18   yes
+CPU single-thread                 100000      0     469.010     469.010       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)         100000      0      32.472      32.472       0.000    14.44    14.44   yes
+CUDA naive (AoS split)            100000    256      27.769     176.469     117.922    16.89     2.66   yes
+CUDA AoS fused                    100000    256       5.225      17.536       4.554    89.76    26.75   yes
+CUDA SoA split                    100000    256      11.208      26.429       7.672    41.85    17.75   yes
+CUDA optimized (SoA fused)        100000    256       3.126      14.904       5.247   150.01    31.47   yes
+CPU single-thread                 500000      0    2101.256    2101.256       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)         500000      0     128.915     128.915       0.000    16.30    16.30   yes
+CUDA naive (AoS split)            500000    256     127.966     786.692     552.328    16.42     2.67   yes
+CUDA AoS fused                    500000    256      20.026      50.918       9.655   104.93    41.27   yes
+CUDA SoA split                    500000    256      17.490      56.840      17.707   120.14    36.97   yes
+CUDA optimized (SoA fused)        500000    256       6.024      42.527      17.664   348.83    49.41   yes
+CPU single-thread                1000000      0    3246.070    3246.070       0.000     1.00     1.00   yes
+CPU multi-thread (OpenMP)        1000000      0     245.184     245.184       0.000    13.24    13.24   yes
+CUDA naive (AoS split)           1000000    256     287.307    1590.801    1099.311    11.30     2.04   yes
+CUDA AoS fused                   1000000    256      59.592     116.966      19.202    54.47    27.75   yes
+CUDA SoA split                   1000000    256      39.776     108.103      27.758    81.61    30.03   yes
+CUDA optimized (SoA fused)       1000000    256      29.660      90.784      27.515   109.44    35.76   yes
+Scenario suite (mass-casualty scaled, 6.0 simulated hours)
+  [  3%] scenario N=1000 CPU single-thread [per-step]
+  [  6%] scenario N=1000 CPU multi-thread (OpenMP) [per-step]
+  [  9%] scenario N=1000 CUDA naive [per-step]
+  [ 12%] scenario N=1000 CUDA optimized [per-step]
+  [ 16%] scenario N=1000 CUDA optimized + Graph [per-step]
+  [ 19%] scenario N=1000 CPU single-thread [event-batched]
+  [ 22%] scenario N=1000 CPU multi-thread (OpenMP) [event-batched]
+  [ 25%] scenario N=1000 CUDA optimized [event-batched]
+  [ 28%] scenario N=10000 CPU single-thread [per-step]
+  [ 31%] scenario N=10000 CPU multi-thread (OpenMP) [per-step]
+  [ 34%] scenario N=10000 CUDA naive [per-step]
+  [ 38%] scenario N=10000 CUDA optimized [per-step]
+  [ 41%] scenario N=10000 CUDA optimized + Graph [per-step]
+  [ 44%] scenario N=10000 CPU single-thread [event-batched]
+  [ 47%] scenario N=10000 CPU multi-thread (OpenMP) [event-batched]
+  [ 50%] scenario N=10000 CUDA optimized [event-batched]
+  [ 53%] scenario N=50000 CPU single-thread [per-step]
+  [ 56%] scenario N=50000 CPU multi-thread (OpenMP) [per-step]
+  [ 59%] scenario N=50000 CUDA naive [per-step]
+  [ 62%] scenario N=50000 CUDA optimized [per-step]
+  [ 66%] scenario N=50000 CUDA optimized + Graph [per-step]
+  [ 69%] scenario N=50000 CPU single-thread [event-batched]
+  [ 72%] scenario N=50000 CPU multi-thread (OpenMP) [event-batched]
+  [ 75%] scenario N=50000 CUDA optimized [event-batched]
+  [ 78%] scenario N=100000 CPU single-thread [per-step]
+  [ 81%] scenario N=100000 CPU multi-thread (OpenMP) [per-step]
+  [ 84%] scenario N=100000 CUDA naive [per-step]
+  [ 88%] scenario N=100000 CUDA optimized [per-step]
+  [ 91%] scenario N=100000 CUDA optimized + Graph [per-step]
+  [ 94%] scenario N=100000 CPU single-thread [event-batched]
+  [ 97%] scenario N=100000 CPU multi-thread (OpenMP) [event-batched]
+  [100%] scenario N=100000 CUDA optimized [event-batched]
+backend                             N    wall ms    backend controller    xWall   same
+CPU single-thread [per-step]     1000         47         46          1     1.00    yes
+CPU multi-thread (OpenMP) [per-step]     1000         37         35          1     1.28    yes
+CUDA naive [per-step]            1000       1015       1012          2     0.05    yes
+CUDA optimized [per-step]        1000        535        509          2     0.09    yes
+CUDA optimized + Graph [per-step]     1000        582        547          2     0.08    yes
+CPU single-thread [event-batched]     1000         35         35          0     1.34    yes
+CPU multi-thread (OpenMP) [event-batched]     1000         39         37          1     1.21    yes
+CUDA optimized [event-batched]     1000        384        358          1     0.12    yes
+CPU single-thread [per-step]    10000        406        401          4     1.00    yes
+CPU multi-thread (OpenMP) [per-step]    10000         89         79          7     4.57    yes
+CUDA naive [per-step]           10000       1664       1654          8     0.24    yes
+CUDA optimized [per-step]       10000        783        704          8     0.52    yes
+CUDA optimized + Graph [per-step]    10000        804        719          9     0.51    yes
+CPU single-thread [event-batched]    10000        415        409          5     0.98    yes
+CPU multi-thread (OpenMP) [event-batched]    10000        103         92          8     3.94    yes
+CUDA optimized [event-batched]    10000        735        651          9     0.55    yes
+CPU single-thread [per-step]    50000       2280       2250         27     1.00    yes
+CPU multi-thread (OpenMP) [per-step]    50000        306        273         23     7.46    yes
+CUDA naive [per-step]           50000       3823       3789         32     0.60    yes
+CUDA optimized [per-step]       50000        882        767         26     2.59    yes
+CUDA optimized + Graph [per-step]    50000        918        798         27     2.48    yes
+CPU single-thread [event-batched]    50000       2670       2635         32     0.85    yes
+CPU multi-thread (OpenMP) [event-batched]    50000        295        260         25     7.73    yes
+CUDA optimized [event-batched]    50000        810        697         24     2.82    yes
+CPU single-thread [per-step]   100000       5663       5563         90     1.00    yes
+CPU multi-thread (OpenMP) [per-step]   100000        524        460         48    10.81    yes
+CUDA naive [per-step]          100000       6323       6262         57     0.90    yes
+CUDA optimized [per-step]      100000        884        744         47     6.41    yes
+CUDA optimized + Graph [per-step]   100000        965        835         43     5.87    yes
+CPU single-thread [event-batched]   100000       4487       4405         75     1.26    yes
+CPU multi-thread (OpenMP) [event-batched]   100000        502        445         42    11.27    yes
+CUDA optimized [event-batched]   100000        824        673         50     6.88    yes
+CSV written to benchmarks/results

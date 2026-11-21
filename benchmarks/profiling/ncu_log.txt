@@ -1,0 +1,62 @@
+=== k_move_aos ===
+==PROF== Connected to process 65088 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_move_aos": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 65088
+CUDA naive (AoS split)         N=1000000 kernel 7.275 ms  e2e 85.977 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.243 ms  e2e 49.511 ms  ok
+CUDA SoA split                 N=1000000 kernel 1.119 ms  e2e 56.338 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 0.886 ms  e2e 57.116 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 1.331 ms  e2e 91.650 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_move_aos.ncu-repz
+=== k_fused_aos ===
+==PROF== Connected to process 19012 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_fused_aos": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 19012
+CUDA naive (AoS split)         N=1000000 kernel 4.500 ms  e2e 77.998 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.082 ms  e2e 53.999 ms  ok
+CUDA SoA split                 N=1000000 kernel 3.214 ms  e2e 59.659 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 0.869 ms  e2e 61.378 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 0.893 ms  e2e 65.568 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_fused_aos.ncu-repz
+=== k_move_soa ===
+==PROF== Connected to process 65164 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_move_soa": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 65164
+CUDA naive (AoS split)         N=1000000 kernel 4.977 ms  e2e 80.978 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.049 ms  e2e 40.585 ms  ok
+CUDA SoA split                 N=1000000 kernel 1.644 ms  e2e 61.371 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 0.890 ms  e2e 61.489 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 0.978 ms  e2e 60.963 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_move_soa.ncu-repz
+=== k_compact_soa ===
+==PROF== Connected to process 44420 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_compact_soa": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 44420
+CUDA naive (AoS split)         N=1000000 kernel 6.964 ms  e2e 82.802 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.107 ms  e2e 46.357 ms  ok
+CUDA SoA split                 N=1000000 kernel 1.284 ms  e2e 64.207 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 1.882 ms  e2e 61.257 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 1.443 ms  e2e 60.647 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_compact_soa.ncu-repz
+=== k_fused_soa ===
+==PROF== Connected to process 61960 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_fused_soa": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 61960
+CUDA naive (AoS split)         N=1000000 kernel 4.591 ms  e2e 122.912 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.082 ms  e2e 53.656 ms  ok
+CUDA SoA split                 N=1000000 kernel 1.018 ms  e2e 60.238 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 0.831 ms  e2e 53.511 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 0.984 ms  e2e 54.775 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_fused_soa.ncu-repz
+=== k_fused_soa_active ===
+==PROF== Connected to process 55812 (c:\Users\skrpf\EL7\build\bin\hospital_sim.exe)
+==PROF== Profiling "k_fused_soa_active": 0%....50%....100% - 40 passes
+==PROF== Disconnected from process 55812
+CUDA naive (AoS split)         N=1000000 kernel 4.484 ms  e2e 59.927 ms  ok
+CUDA AoS fused                 N=1000000 kernel 1.475 ms  e2e 33.787 ms  ok
+CUDA SoA split                 N=1000000 kernel 1.048 ms  e2e 49.424 ms  ok
+CUDA optimized (SoA fused)     N=1000000 kernel 0.887 ms  e2e 40.596 ms  ok
+CUDA SoA fused active-list     N=1000000 kernel 1.009 ms  e2e 65.933 ms  ok
+==PROF== Report: c:\Users\skrpf\EL7\benchmarks\profiling\ncu_k_fused_soa_active.ncu-repz
+Reports: benchmarks\profiling\ncu_*.ncu-rep(z) (open in Nsight Compute UI)
+Summary: benchmarks\profiling\kernels_1M_details.csv

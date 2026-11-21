@@ -1,0 +1,11 @@
+﻿compute-sanitizer (CUDA 13.5) results - RTX 5060 Laptop GPU
+------------------------------------------------------------
+memcheck  : hospital_sim --profile 4097 --steps 3 (all 5 kernel variants, N not a multiple of the block size) -> 0 errors
+racecheck : same workload (shared-memory hazards incl. reduction kernel)                                    -> 0 hazards
+synccheck : same workload (__syncthreads / warp-sync correctness)                                          -> 0 errors
+initcheck : same workload + full Normal scenario (hospital_sim --run 0 --backend gpu)                      -> 0 errors
+memcheck  : hospital_tests gpu_zero (N = 0, out-of-range command ids) and full Normal scenario on GPU     -> 0 errors
+
+Note: the first initcheck run reported reads of uninitialised device memory by the speculative
+event-prefix cudaMemcpy (1024 events x 16 B copied, only count of them valid). The values were
+never used, but the event buffers are now zero-initialised once at allocation so the copy is defined.
